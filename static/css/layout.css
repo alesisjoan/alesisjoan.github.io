@@ -142,3 +142,23 @@ footer p {
     margin-bottom: 10px;
     font-size: 10pt;
 }
+
+.main-topic{
+}
+/** Clearfix **/
+.main-topic::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.right-text{
+  width:50%;
+  float:right;
+}
+.left-picture{
+  float:left;
+  width:50%;
+}
+.right-picture img{
+  max-width:100%
+}
