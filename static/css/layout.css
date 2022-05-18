@@ -162,3 +162,7 @@ footer p {
 .right-picture img{
   max-width:100%
 }
+address {
+    white-space: initial;
+    font-size: 70%;
+}
