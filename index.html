@@ -1,359 +1,483 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Alesis Manzano's Resume</title>
-    <meta name="description" content="Alesis Manzano's Résumé">
+    <title>Alesis Manzano — CV</title>
+    <meta name="description" content="Alesis Manzano — Odoo Developer CV">
     <meta name="author" content="Alesis Manzano">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* ── Reset & base ────────────────────────────────────────────── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 11pt;
+            color: #1a1a1a;
+            background: #fff;
+            line-height: 1.45;
+        }
 
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/skeleton.css">
-    <link rel="stylesheet" href="/static/css/layout.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        /* ── Page wrapper ───────────────────────────────────────────── */
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 36px 44px 48px;
+        }
 
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        /* ── Header ─────────────────────────────────────────────────── */
+        header {
+            text-align: center;
+            margin-bottom: 14px;
+        }
+        header h1 {
+            font-size: 26pt;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        header .contact {
+            font-size: 9.5pt;
+            color: #333;
+            margin-top: 5px;
+        }
+        header .contact a {
+            color: #1a1a1a;
+        }
+        header .contact span.sep {
+            margin: 0 6px;
+            color: #999;
+        }
 
-    <link rel="shortcut icon" href="/static/img/favicon.ico">
-    <!-- <link rel="apple-touch-icon" href="static/img/me-icon-57.png"> -->
-    <!-- <link rel="apple-touch-icon" sizes="72x72" href="static/img/me-icon-72.png"> -->
-    <!-- <link rel="apple-touch-icon" sizes="114x114" href="static/img/me-icon-114.png"> -->
+        /* ── Summary ────────────────────────────────────────────────── */
+        .summary {
+            border-top: 1.5px solid #1a1a1a;
+            border-bottom: 1px solid #ccc;
+            padding: 9px 0 10px;
+            margin-bottom: 16px;
+            font-size: 10pt;
+            color: #222;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        /* ── Section ────────────────────────────────────────────────── */
+        section {
+            margin-bottom: 16px;
+        }
+        section h2 {
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1.5px solid #1a1a1a;
+            padding-bottom: 2px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        /* ── Entry (job / education / project) ──────────────────────── */
+        .entry {
+            margin-bottom: 13px;
+        }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+        .entry-header .company {
+            font-weight: 700;
+            font-size: 10.5pt;
+        }
+        .entry-header .location {
+            font-size: 9.5pt;
+            color: #444;
+        }
+        .entry-sub {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+        .entry-sub .title {
+            font-style: italic;
+            font-size: 10pt;
+        }
+        .entry-sub .dates {
+            font-size: 9.5pt;
+            color: #444;
+            font-style: italic;
+        }
+        ul.bullets {
+            margin: 6px 0 0 18px;
+            list-style: disc;
+        }
+        ul.bullets li {
+            font-size: 10pt;
+            margin-bottom: 3px;
+            line-height: 1.45;
+        }
+
+        /* ── Module list (two-column) ───────────────────────────────── */
+        .module-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 24px;
+            margin: 6px 0 0 0;
+            font-size: 9.5pt;
+        }
+        .module-grid li {
+            list-style: none;
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.4;
+        }
+        .module-grid li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            color: #555;
+        }
+
+        /* ── Skill tags ─────────────────────────────────────────────── */
+        .skills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 10px;
+            font-size: 9.5pt;
+        }
+        .skills-row span {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 1px 7px;
+        }
+
+        /* ── Print ──────────────────────────────────────────────────── */
+        @media print {
+            body { font-size: 10pt; }
+            .page { padding: 18px 28px 24px; max-width: 100%; }
+            header h1 { font-size: 22pt; }
+            section { margin-bottom: 12px; }
+            .entry { margin-bottom: 10px; }
+            a { color: inherit; text-decoration: none; }
+            .no-print { display: none; }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <header class="three columns">
+<div class="page">
 
-        <img src="/static/img/profile.png" class="me">
+    <!-- ── Header ─────────────────────────────────────────────────── -->
+    <header>
+        <img src="/static/img/profile.png" alt="Alesis Manzano"
+             style="width:90px;height:90px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 10px;">
         <h1>Alesis Manzano</h1>
-        <p><i class="fa fa-birthday-cake "></i> Age: 35</p>
-        <address>
-            <i class="fa fa-map-marker "></i>
-                Buenos Aires - Argentina
-        </address>
-        <img src="http://api.qrserver.com/v1/create-qr-code/?color=000000&amp;bgcolor=FFFFFF&amp;data=http%3A%2F%2Falesisjoan.github.io&amp;qzone=1&amp;margin=0&amp;size=50x50&amp;ecc=L" alt="alesisjoan.github.io" />
-        <p>
-            
-            <i class="fa fa-globe "></i><a href="https://alesisjoan.github.io"> alesisjoan.github.io</a><br/>
-        </p>
-        <p>
-            <i class="fa fa-paper-plane-o "></i><a style="font-size: 85%;" href="mailto:alesismanzano@gmail.com"> alesismanzano@gmail.com</a><br/>
-            <a href="https://github.com/alesisjoan"><i class="fa fa-github"></i> Github</a> /
-            <a href="https://linkedin.com/in/alesismanzano"><i class="fa fa-linkedin"></i> Linkedin</a>
-        </p>
-        <p><a href="/assets/AlesisManzanoCV.pdf">
-            <button type="button" class="btn btn-default" aria-label="Left Align"><span
-                    class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> PDF Download
-            </button>
-        </a></p>
-
-
+        <div class="contact">
+            Buenos Aires, Argentina
+            <span class="sep">·</span>
+            <a href="https://linkedin.com/in/alesismanzano">linkedin.com/in/alesismanzano</a>
+            <span class="sep">·</span>
+            <a href="mailto:alesismanzano@gmail.com">alesismanzano@gmail.com</a>
+            <span class="sep">·</span>
+            <a href="https://alesisjoan.github.io">alesisjoan.github.io</a>
+            <span class="sep">·</span>
+            <a href="https://github.com/alesisjoan">github.com/alesisjoan</a>
+        </div>
     </header>
-    <div class="thirteen columns clearfix">
 
-        <section class="thirteen columns">
-            <h1>Employment</h1>
-             <article>
-                <header>
-                    <h1>Odoo Developer at ShowHeroes Group</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Remote</address><time>2022-08 ~ Present</time></span>
-                    <p>Frameworks:</p>
-                    <ul>
-                        <li>Odoo v16/v17/Python</li>
-                        <li>Odoo modules: Enterprise, HR, CRM, Project, Helpdesk, Contact, Sales, Purchase, Documents, Account</li>
-                        <li>Docker, Kubernetes</li>
-                        <li>Legacy: Personio, Hubspot</li>
-                    </ul>
-                </header>
-            </article>
-            <article>
-                <header>
-                    <h1>Odoo Developer at Bloopark</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Remote</address><time>2021-12 ~ 2022-05</time></span>
-                    <p>Frameworks:</p>
-                    <ul>
-                        <li>Odoo v14, v15/Python</li>
-                        <li>Odoo modules: Inventory, Documents, CRM, Accounting, Helpdesk</li>
-                        <li>Odoo.sh, Docker</li>
-                        <li>MS SQL</li>
-                        <li>3 commas crypto bots</li>
-                        <li>Integrations: Edifact, Egeko, LetterXpress, DPD, FieldService</li>
-                        <li>Legacy:Selectine, ProKontakt</li>
-                    </ul>
-                </header>
-            </article>
-            <article>
-                <header>
-                    <h1>Fullstack Developer at Slingr low code</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Remote</address><time>2021-01 ~ 2021-11</time></span>
-                    <p>Frameworks:</p>
-                    <ul>
-                        <li>JAVA Spring 5</li>
-                        <li>Javascript durandall knockout</li>
-                        <li>Mongo DB</li>
-                        <li>IntelliJ, Postman</li>
-                        <li>Kubernetes, Google Cloud Platform</li>
-                        <li>Jenkins</li>
-                    </ul>
-                </header>
-            </article>
-            <article>
-                <header>
-                    <h1>Spring JAVA Developer at Globallogic</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Remote (Mendoza, AR)</address><time>2020 ~ 2021</time></span>
-                    <p>Frameworks:</p>
-                    <ul>
-                        <li>JAVA Spring 5</li>
-                        <li>SQL Server, PostgreSQL, Redis, Scala</li>
-                        <li>SOAP UI, Eclipse, IntelliJ, Postman</li>
-                        <li>Gradle, Docker, Kafka, Zookeeper, Scala, Spring Cloud, Elasticsearch</li>
-                        <li>Jacoco, JUnit, Mockito, SonarLint</li>
-                    </ul>
-                </header>
-            </article>
-            <article>
-                <header>
-                    <h1>Python Odoo Developer / Full Stack Developer at Hospital Español de Mendoza</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Mendoza, AR</address><time>2016-09 ~ 2019-12</time></span>
-                </header>
-                <p>Projects:</p>
-                <ul>
-                    <li>HCUD (Python/Odoo/React/Postgresql): Digital Unique Medical Record</li>
-                    <li>Farmacia (Python/Odoo/Postgresql): Pharmacy ERP, Stock and Sales </li>
-                    <li>CAEA (Python/Odoo/SQL Server): Interface between Account System and Government Register</li>
-                    <li>Kronos (Python/ApiRest/Odoo/SQL Server): cross-platform interface engine between systems via API REST
-                        with a publisher/suscriber configuration, inspired by microservices paradigm.
-                    </li>
-                    <li>Turnos web (React/ApiRest/Python): portal for patients asking for medical appointments.</li>
-                </ul>
-            </article>
-            <article>
-                <header>
-                    <h1>JAVA Spring Developer / Full Stack Developer at Midas Consultores</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Mendoza, AR</address><time>2015-03 ~ 2016-03</time></span>
-                    <p>Projects:</p>
-                    <ul>
-                        <li>ERP for motor-filter store (JAVA/Spring/JSP)</li>
-                        <li>Online gambling-roulette (JAVA/Spring/JavaScript/jQuery/JSP)</li>
-                    </ul>
-                </header>
-                </ul>
-            </article>
-            <article>
-                <header>
-                    <h1>JAVA Spring Developer at Concatel SII</h1>
-                    <span><address><i class="fa fa-map-marker "></i> Mendoza, AR</address><time>2014-07 ~ 2015-01</time></span>
-                    <p>Projects:</p>
-                    <ul>
-                        <li>ServiceOne (Java/Spring/JSP): ERP for resources and incidents managment.</li>
-                    </ul>
-                </header>
-            </article>
-        </section>
-        <section class="thirteen columns">
-            <h1>Courses</h1>
-            <article>
-                <header>
-                    <a href="https://www.udemy.com/course/spring-framework-5-beginner-to-guru/"><h1>Spring
-                        Framework 5</h1></a>
-                </header>
-                <div class="main-topic">
-                    <img class="left-picture" src="/static/assets/images/spring5.jpg" width="30%%" height="30%%">
-                    <p class="right-text">
-                    Spring Framework 5, Spring Boot 2, Spring Data JPA, Spring MVC, Spring MockMVC, Spring WebFlux, Spring Web Client, Spring Data MongoDB, Spring RestDocs, Hibernate, Project Lombok, MapStruct, Maven, Gradle, JUnit 4 and JUnit 5, Mockito
-                    </p>
-                </div>
-                
-            </article>
-            </br></br>
-            <article>
-                <header>
-                    <a href="https://www.udemy.com/course/spring-boot-microservices-with-spring-cloud-beginner-to-guru">
-                        <h1>Spring Boot Cloud and Microservices</h1></a>
-                </header>
-                <div class="main-topic">
-                    <img class="left-picture" src="/static/assets/images/springcloud.jpg" width="30%%" height="30%%">
-                    <p class="right-text">Spring MVC, Spring RestTemplate, Project Lombok, MapStruct, Spring Data JPA with Hibernate, MySQL and H2, Jackson for processing JSON&nbsp;with Spring Boot Spring RESTdocs, Apache Maven,
-                        Spring Application Events Apache ActiveMQ Artemis, Saga Pattern, Spring State Machine for coordinating Sagas JUnit 5, WireMock with JUnit 5, Awaitily in your Integration Tests Spring Cloud Gateway, Netflix Ribbon / Spring Cloud Loadbalancer, Netflix Eureka, Netflix Eureka, Spring Cloud OpenFeign, Reslience4J and Hystrix / Spring Cloud OpenFeign, Spring Cloud Config, Spring Boot Actuator, Docker
-                    </p>
-                </div>
-              
-            </article>
-        </section>
-
-        <section class="thirteen columns">
-            <h1>Education</h1>
-            <article>
-                <header>
-                    <h1>Information Systems Engineer</h1>
-                    <span>Universidad Tecnológica Nacional - FR Mendoza</span>
-                    <span><a
-                            href="http://www.frm.utn.edu.ar/index.php?option=com_content&view=article&id=84&Itemid=114">+Info</a></span>
-                    <span><img src="/static/assets/images/utn.jpg" width="50%%" height="50%%"></span>
-                    <br/>
-                    <span><address>Mendoza, AR</address><time>2009 to 2018</time></span>
-                </header>
-            </article>
-
-            <article>
-                <header>
-                    <h1>English</h1>
-                    <span>AMICANA</span>
-                    <span>Course Conversation - Advanced</span>
-                    <span><address>Mendoza, AR</address><time>2020</time></span>
-                    <br/>
-                    <span>Instituto Cultural de Mendoza</span>
-                    <span>B1 equivalent</span>
-                    <span><address>Mendoza, AR</address><time>2007 to 2009</time></span>
-                </header>
-            </article>
-
-            <article>
-                <header>
-                    <h1>German</h1>
-                    <span>Sociedad Goetheana de Mendoza</span>
-                    <span>B1 equivalent / ZD Zertifikat Deutsch</span>
-                    <span><address>Mendoza, AR</address><time>2009 to 2013</time></span>
-                </header>
-            </article>
-
-            <article>
-                <header>
-                    <h1>Latin</h1>
-                    <span>Facultad de Filosofia y Letras - UNCuyo</span>
-                    <span>Level I</span>
-                    <span><address>Mendoza, AR</address><time>2020</time></span>
-                </header>
-            </article>
-        </section>
-
-        
-
-        <section class="thirteen columns">
-            <h1>Non work projects</h1>
-            <article>
-                <header>
-                    <h1>3Commas crypto bot management in Odoo</h1>
-                </header>
-                <p>
-                    Odoo module to manage bots created in 3Commas. You can create bots from running python scripts on github. It's planned to make an integration with Odoo's account module to connect bots profits with account balance. Adds crypto coins as currencies in Odoo.
-                </p>    
-            </article>    
-            <article>
-                <header>
-                    <h1>ChangoSmart</h1>
-                    <span>Java/Spring/JavaScript/HTML5</span>
-                    <span>with Fernando Leiva, Lucas Aranda and Ignacio Fernandez.</span>
-                </header>
-                <center>
-                    <img src="/static/assets/images/changosmart.png" width="30%%" height="30%%">
-                </center>
-
-                <i>From original paper:</i>
-                <p>
-                    Our project proposal arises from a natural need to favor the daily economy of people. We observe
-                    that in
-                    spite of being in the era of communications and information at the moment, there is currently no
-                    system
-                    that suggests an efficient and beneficial way of acquiring the provisions of daily consumption.
-                    We noticed that supermarkets offer offers continuously to their customers to tempt them to consume
-                    in
-                    their stores. These offers, besides being very difficult for customers to remember (since there are
-                    offers per card, per day of the week, per branch, etc.), are often deceptive and often act as a bait
-                    for
-                    the unsuspecting customer to save in the acquisition of a product, but overpay in the acquisition of
-                    another group of related products.
-                    From this observation, Chango Smart was developed, which is a system that analyzes a database to
-                    calculate based on unit prices, benefits, discounts and distance to the trade, which is the most
-                    recommended supermarket to acquire a certain list of products. Added to this base is the active
-                    participation of users, who can load prices and products easily, either through the web or a
-                    Smartphone,
-                    thus promoting the updating and reliability of the information.
-                    In this work we find an investigation of existing softwares, with evaluations focused on their
-                    strengths. Subsequently, and taking into account those positive points, the development of Chango
-                    Smart
-                    is detailed.
-                    To conclude, we can say that Chango Smart is an integral, technological, innovative and realistic
-                    solution to the aforementioned problem, and, at the same time, that this software is friendly and of
-                    great value to users when making their daily purchases in supermarkets.
-
-                </p>
-            </article>
-            <article>
-                <header>
-                    <h1>Mortgage Credit Simulator</h1>
-                    <span>Angular2</span>
-                </header>
-                <center>
-                    <img src="/static/assets/images/procear.png" width="30%%" height="30%%">
-                </center>
-
-                <p>
-                    A simple simulator based on Argentina's Procrear Credit Program. This indicates how much credit do
-                    you need
-                    depending on your first capital amount.
-
-                </p>
-            </article>
-
-            <article>
-                <header>
-                    <h1>Simple Poll for incidents</h1>
-                    <span>React</span>
-                </header>
-                <center>
-                    <img src="/static/assets/images/reporte incidentes.png" width="30%%" height="30%%">
-                    <img src="/static/assets/images/reporte_incidentes_2.png" width="30%%" height="30%%">
-                </center>
-
-                <p>
-                    A simple poll front-end based on React. Design for a hospital that need everybody could report an
-                    incident
-                    (OMS List) anonymously, and be saved in the back-end system.
-
-                </p>
-            </article>
-
-        </section>
-
-        <section class="thirteen columns">
-            <h1>Profesional Goals</h1>
-            <article>
-                <ul>
-                    <li>Improve my knowledge and skills, both technicals and human</li>
-                    <li>Solve problems</li>
-                    <li>Discover new paradigms</li>
-                    <li>Perform my own ideas and company projects</li>
-                    <li>Achieve OpenSource projects</li>
-                </ul>
-            </article>
-            <h1>Hobbies</h1>
-            <article>
-                <p>Music, Read Dev.To, Travelling, Cycling, Gaming, Read Newspapers, Economy (Stock Exchange).</p>
-            </article>
-        </section>
-
-        <footer class="thirteen columns">
-            <p>Today:
-                <script> document.write(new Date().toLocaleDateString()); </script>
-            </p>
-            <p>Last revision: 20 June 2023</p>
-            <p>© All rights reserved. Powered by <a href="http://jekyllrb.com/">Jekyll</a> and
-                <a href="https://www.github.com/jekyller/vitae">vitae</a> with ♥</p>
-        </footer>
+    <!-- ── Summary ────────────────────────────────────────────────── -->
+    <div class="summary">
+        Odoo developer with 10+ years of software experience, 6+ years focused on Odoo
+        across v8–v18. Deep knowledge of the Odoo ORM, QWeb reports, XML views, and the
+        security model (access rights, record rules). Led implementation and custom development
+        for a global company operating in 20 countries — building modules from scratch,
+        extending core ones, and currently leading the v17 → v18 migration across 80+ modules.
+        First PR merged into the OCA, actively working toward becoming a regular contributor.
     </div>
+
+    <!-- ── Professional Experience ────────────────────────────────── -->
+    <section>
+        <h2>Professional Experience</h2>
+
+        <!-- ShowHeroes -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">ShowHeroes Group</span>
+                <span class="location">Remote</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Odoo Technical Referent</span>
+                <span class="dates">Aug 2022 – Present</span>
+            </div>
+            <ul class="bullets">
+                <li>
+                    Acted as <strong>Odoo technical referent</strong> for the implementation and
+                    ongoing development of Odoo across <strong>20 countries</strong> — covering
+                    CRM, Accounting, Project, HR, Documents, Helpdesk, and Purchase in a
+                    multi-company, multi-currency environment.
+                </li>
+                <li>
+                    Led the <strong>replacement of spreadsheet-based processes</strong> across
+                    Sales, Finance, and Operations — translating manual workflows and email chains
+                    into structured Odoo pipelines with proper ownership, deadlines, and audit
+                    trails, delivering a single source of truth for each business area.
+                </li>
+                <li>
+                    Heavily extended the <strong>CRM module</strong>: custom pipeline stages per
+                    market, multi-country opportunity tracking, bidirectional sync with Project
+                    tasks, and an automated matching engine that links external revenue records
+                    to CRM opportunities — eliminating manual lookup in most cases.
+                </li>
+                <li>
+                    Heavily extended the <strong>Accounting module</strong>: multi-currency revenue
+                    planning and actuals tracking across 15+ currencies, a structured monthly
+                    financial close with activities-driven approvals and escalation rules,
+                    vendor statement management linked to journal entries with automatic payment
+                    status sync, multi-company consolidation, and inter-company rules.
+                </li>
+                <li>
+                    Heavily extended the <strong>Project module</strong>: custom task-type system
+                    with stage validation, 6 specialized project types for different business units,
+                    bidirectional CRM–task sync, workload management, and automated task duplication.
+                </li>
+                <li>
+                    Designed features following the <strong>Odoo spirit</strong> — user-focused
+                    forms, management-ready pivot reports and dashboards, and activities-driven
+                    workflows where each stage transition auto-creates the next responsible user's
+                    activity and auto-completes the previous one, keeping teams aligned without
+                    manual coordination. Built custom <strong>QWeb reports</strong> for finance
+                    and sales outputs.
+                </li>
+                <li>
+                    Applied Odoo's <strong>security model</strong> across all modules: designed
+                    access rights and record rules for multi-company, multi-role environments;
+                    enforced field-level visibility and ensured data isolation between companies
+                    and markets.
+                </li>
+                <li>
+                    Collaborated closely with functional consultants to translate business
+                    requirements into technical solutions; diagnosed and resolved production issues
+                    under time pressure across accounting, CRM, and project workflows.
+                </li>
+                <li>
+                    Participated as technical referent in the localization rollout for
+                    <strong>Argentina, Italy, Germany, Peru, Finland, Sweden, Singapore, US,
+                    and Latin America</strong> — configuring and adapting Odoo l10n modules to
+                    local accounting and invoicing requirements.
+                </li>
+                <li>
+                    Led the <strong>Odoo v16 → v17 migration</strong> of 80+ custom modules:
+                    resolved merge conflicts, updated OWL components, fixed access rules, and
+                    validated test suites post-migration. Currently leading the <strong>v17 → v18
+                    migration</strong>.
+                </li>
+                <li>
+                    Maintained an active test suite across modules; onboarded a junior developer
+                    and established documentation and coding standards for the team.
+                </li>
+            </ul>
+
+            <!-- ── Most Complex Project ──────────────────────────────── -->
+            <div style="margin-top:10px; padding: 9px 12px; border-left: 3px solid #555; background: #fafafa;">
+                <div style="font-weight:700; font-size:10pt; margin-bottom:4px;">
+                    Most Complex Project — Global Revenue Planning &amp; Monthly Financial Close
+                </div>
+                <div style="font-size:9.5pt; line-height:1.5;">
+                    Designed and built a system replacing a fully spreadsheet-driven monthly close
+                    process for a company operating across 10+ markets and 15+ currencies.
+                    The <em>forecast &amp; actuals</em> layer lets sales managers and finance teams
+                    create multi-dimensional revenue forecasts (by market, agency hierarchy, sales
+                    rep, deal type, and ad format) and automatically track actuals from CRM won
+                    deals against them — surfacing forecast vs. actuals variance in pivot reports
+                    ready for board-level presentations.
+                    The <em>monthly close workflow</em> coordinates three roles (operations, finance,
+                    management) through a structured sequence of activities auto-created at each
+                    stage transition, with configurable deadlines per market, escalation rules for
+                    overdue items, and a full audit trail in the chatter.
+                    The <em>vendor statement management</em> layer replaces email threads for
+                    incoming revenue statements: each statement moves through an activities-driven
+                    approval chain, generates vendor bills directly in Odoo Accounting, and
+                    automatically marks itself as paid when linked invoices are settled.
+                    The system handles 3 contract types, 10+ countries, and 15+ currencies
+                    simultaneously.
+                </div>
+            </div>
+
+            <!-- ── Ad-hoc & Integration modules ─────────────────────── -->
+            <div style="margin-top:8px; font-size:9.5pt; color:#333; line-height:1.5;">
+                <em>Additional custom modules:</em> XRechnung / ZUGFeRD e-invoicing for Germany
+                &nbsp;·&nbsp; EBICS banking protocol integration &nbsp;·&nbsp; PEPPOL e-invoicing
+                for European markets &nbsp;·&nbsp; Currency rate fallback extension (15+ national
+                bank providers, caching).
+            </div>
+        </div>
+
+        <!-- Bloopark -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">Bloopark Systems</span>
+                <span class="location">Remote</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Odoo Developer</span>
+                <span class="dates">Dec 2021 – May 2022</span>
+            </div>
+            <ul class="bullets">
+                <li>Delivered custom Odoo v14/v15 integrations: Edifact, Egeko, LetterXpress, DPD, and FieldService.</li>
+                <li>Customized Inventory, Documents, CRM, Accounting, and Helpdesk modules.</li>
+                <li>Connected 3Commas crypto bot data to Odoo Accounting for automated P&amp;L tracking.</li>
+            </ul>
+        </div>
+
+        <!-- Slingr -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">Slingr Low Code</span>
+                <span class="location">Remote</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Fullstack Developer</span>
+                <span class="dates">Jan 2021 – Nov 2021</span>
+            </div>
+            <ul class="bullets">
+                <li>Built and maintained low-code platform features using Java Spring 5 and JavaScript (Durandal/Knockout).</li>
+                <li>Deployed services on GCP / Kubernetes; maintained CI/CD pipelines with Jenkins.</li>
+            </ul>
+        </div>
+
+        <!-- Globallogic -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">GlobalLogic</span>
+                <span class="location">Remote — Mendoza, AR</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Java Spring Developer</span>
+                <span class="dates">2020 – 2021</span>
+            </div>
+            <ul class="bullets">
+                <li>Developed microservices with Spring Cloud, Kafka, Elasticsearch, Redis, and PostgreSQL.</li>
+                <li>Ensured code quality via JUnit 5, Mockito, Jacoco, and SonarLint.</li>
+            </ul>
+        </div>
+
+        <!-- Hospital Español -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">Hospital Español de Mendoza</span>
+                <span class="location">Mendoza, AR</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Python / Odoo Developer &amp; Fullstack Developer</span>
+                <span class="dates">Sep 2016 – Dec 2019</span>
+            </div>
+            <ul class="bullets">
+                <li><strong>HCUD</strong> (Python/Odoo/React/PostgreSQL): Digital Unique Medical Record — centralized patient history across hospital departments.</li>
+                <li><strong>Farmacia</strong> (Python/Odoo): Pharmacy ERP covering stock, dispensing, and sales.</li>
+                <li><strong>CAEA</strong> (Python/Odoo/SQL Server): Automated interface between the hospital accounting system and the government tax register.</li>
+                <li><strong>Kronos</strong> (Python/REST): Publisher–subscriber cross-platform integration engine inspired by microservices, connecting 5+ hospital systems via API.</li>
+                <li><strong>Turnos Web</strong> (React/Python REST): Patient-facing appointment portal.</li>
+            </ul>
+        </div>
+
+        <!-- Earlier -->
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">Midas Consultores / Concatel SII</span>
+                <span class="location">Mendoza, AR</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Java Spring Developer</span>
+                <span class="dates">Jul 2014 – Mar 2016</span>
+            </div>
+            <ul class="bullets">
+                <li>Built ERP and incident-management systems (ServiceOne) using Java/Spring/JSP.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ── Odoo Modules ─────────────────────────────────────────────── -->
+    <section>
+        <h2>Odoo Modules Built — ShowHeroes (selection)</h2>
+        <ul class="module-grid">
+            <li><strong>CRM Extension</strong> — custom pipelines, multi-country opportunity tracking, task sync</li>
+            <li><strong>Account Extension</strong> — multi-currency close, approval workflow, consolidation rules</li>
+            <li><strong>Project Extension</strong> — task-type system, stage validation, 6 project types</li>
+            <li><strong>HR Suite</strong> — attendance, holidays, expenses, appraisals, org chart, OKRs</li>
+            <li><strong>l10n Extensions</strong> — localization for AR, IT, DE, PE, FI, SE, SG, US, LATAM</li>
+            <li><strong>Documents Extension</strong> — CRM/project-linked document management</li>
+            <li><strong>Stage Tracking</strong> — full audit trail of CRM and project stage changes</li>
+            <li><strong>Revenue Planning</strong> — external revenue ingestion, multi-currency, auto-matching to CRM</li>
+            <li><strong>Revenue Allocation</strong> — monthly allocation from revenue lines, proration, CRM rollup</li>
+            <li><strong>Reporting Logs</strong> — monthly close workflow with role-based approvals and escalations</li>
+            <li><strong>Currency Extension</strong> — 15+ national bank fallback providers, caching, rate protection</li>
+            <li><strong>EBICS / PEPPOL</strong> — banking protocol &amp; e-invoicing integrations for EU markets</li>
+        </ul>
+    </section>
+
+    <!-- ── Open Source ─────────────────────────────────────────────── -->
+    <section>
+        <h2>Open Source</h2>
+        <div class="entry">
+            <ul class="bullets">
+                <li>First PR merged into the <strong>Odoo Community Association (OCA)</strong> (March 2026); actively working toward becoming a regular contributor.</li>
+                <li>Signed OCA Contributor Agreement; engaging with the OCA community and following technical guidelines.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ── Skills ──────────────────────────────────────────────────── -->
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-row">
+            <span>Odoo v8–v18</span>
+            <span>Python / Odoo ORM</span>
+            <span>QWeb reports</span>
+            <span>XML views</span>
+            <span>Access rights &amp; record rules</span>
+            <span>OWL / JavaScript</span>
+            <span>PostgreSQL</span>
+            <span>REST API integrations</span>
+            <span>Git / GitHub</span>
+            <span>Docker / Kubernetes</span>
+            <span>EBICS</span>
+            <span>PEPPOL</span>
+            <span>Java / Spring</span>
+            <span>Jenkins / CI</span>
+        </div>
+    </section>
+
+    <!-- ── Education ───────────────────────────────────────────────── -->
+    <section>
+        <h2>Education</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">Information Systems Engineer</span>
+                <span class="location">Mendoza, AR</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">Universidad Tecnológica Nacional — FR Mendoza</span>
+                <span class="dates">2009 – 2018</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Languages ───────────────────────────────────────────────── -->
+    <section>
+        <h2>Languages</h2>
+        <div style="font-size:10pt; line-height:1.6;">
+            <strong>Spanish</strong> — Native &nbsp;·&nbsp;
+            <strong>English</strong> — Advanced (AMICANA Conversation, B2 level) &nbsp;·&nbsp;
+            <strong>German</strong> — Intermediate (B1 / ZD Zertifikat Deutsch)
+        </div>
+    </section>
+
+    <footer style="margin-top:20px; font-size:8.5pt; color:#888; text-align:center;" class="no-print">
+        Last updated: April 2026 &nbsp;·&nbsp; <a href="/assets/AlesisManzanoCV.pdf">Download PDF</a>
+    </footer>
+
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', '', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 </html>
