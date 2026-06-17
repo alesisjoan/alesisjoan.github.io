@@ -48,6 +48,51 @@
             color: #999;
         }
 
+        /* ── Certification banner ───────────────────────────────────── */
+        .cert-banner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 14px 0 16px;
+            padding: 11px 16px;
+            border: 1.5px solid #7a4a72;
+            border-left: 5px solid #7a4a72;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #f5eef4 0%, #faf7fa 100%);
+        }
+        .cert-banner .badge {
+            flex: 0 0 auto;
+            font-size: 18pt;
+            color: #7a4a72;
+            line-height: 1;
+        }
+        .cert-banner .cert-text {
+            flex: 1 1 auto;
+        }
+        .cert-banner .cert-title {
+            font-weight: 700;
+            font-size: 11.5pt;
+            letter-spacing: 0.3px;
+            color: #5e3a58;
+        }
+        .cert-banner .cert-meta {
+            font-size: 9pt;
+            color: #555;
+            margin-top: 2px;
+            font-style: italic;
+        }
+        .cert-banner a.cert-link {
+            flex: 0 0 auto;
+            font-size: 8.5pt;
+            font-style: normal;
+            color: #7a4a72;
+            text-decoration: none;
+            border: 1px solid #7a4a72;
+            border-radius: 3px;
+            padding: 3px 9px;
+            white-space: nowrap;
+        }
+
         /* ── Summary ────────────────────────────────────────────────── */
         .summary {
             border-top: 1.5px solid #1a1a1a;
@@ -187,6 +232,16 @@
         </div>
     </header>
 
+    <!-- ── Certification banner ───────────────────────────────────── -->
+    <div class="cert-banner">
+        <span class="badge">★</span>
+        <div class="cert-text">
+            <div class="cert-title">Odoo 19 Functional Certification</div>
+            <div class="cert-meta">Certified by Odoo Inc. · June 2026 · Certificate № 0001150585</div>
+        </div>
+        <a class="cert-link" href="/static/Odoo-19-Functional-Certification.pdf">View certificate</a>
+    </div>
+
     <!-- ── Summary ────────────────────────────────────────────────── -->
     <div class="summary">
         Odoo developer with 10+ years of software experience, 6+ years focused on Odoo
@@ -194,8 +249,26 @@
         security model (access rights, record rules). Led implementation and custom development
         for a global company operating in 20 countries — building modules from scratch,
         extending core ones, and currently leading the v17 → v18 migration across 80+ modules.
+        <strong>Odoo 19 Functional Certified (Odoo Inc., 2026).</strong>
         First PR merged into the OCA, actively working toward becoming a regular contributor.
     </div>
+
+    <!-- ── Certifications ─────────────────────────────────────────── -->
+    <section>
+        <h2>Certifications</h2>
+        <div class="entry">
+            <div class="entry-header">
+                <span class="company">Odoo 19 Functional Certification</span>
+                <span class="location">Odoo Inc.</span>
+            </div>
+            <div class="entry-sub">
+                <span class="title">
+                    <a href="/static/Odoo-19-Functional-Certification.pdf">Certificate № 0001150585</a>
+                </span>
+                <span class="dates">June 2026</span>
+            </div>
+        </div>
+    </section>
 
     <!-- ── Professional Experience ────────────────────────────────── -->
     <section>
@@ -432,7 +505,8 @@
     <section>
         <h2>Technical Skills</h2>
         <div class="skills-row">
-            <span>Odoo v8–v18</span>
+            <span>Odoo v8–v19</span>
+            <span>Odoo 19 Functional Certified</span>
             <span>Python / Odoo ORM</span>
             <span>QWeb reports</span>
             <span>XML views</span>
@@ -475,7 +549,7 @@
     </section>
 
     <footer style="margin-top:20px; font-size:8.5pt; color:#888; text-align:center;" class="no-print">
-        Last updated: April 2026 &nbsp;·&nbsp; <a href="/static/Alesis Manzano - CV.pdf">Download PDF</a>
+        Last updated: June 2026 &nbsp;·&nbsp; <a href="/static/Alesis Manzano - CV.pdf">Download PDF</a>
     </footer>
 
 </div>
